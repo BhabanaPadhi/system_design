@@ -1,0 +1,69 @@
+1. How to Start with Distributed Systems
+Definition: A distributed system is a collection of independent computers that appear to the users as a single coherent system.
+
+Why Use Distributed Systems?
+
+Scalability
+
+Fault Tolerance
+
+Availability
+
+Cost-efficiency
+
+Key Concepts:
+
+Nodes: Individual machines in the system.
+
+Communication: Usually through APIs (REST, gRPC) or messaging queues (Kafka, RabbitMQ).
+
+State Management: Often kept in a distributed database or cache (e.g., Redis, Cassandra).
+
+Consistency Models: Strong consistency, eventual consistency.
+
+CAP Theorem: In any distributed system, you can only have 2 of the 3:
+
+Consistency
+
+Availability
+
+Partition Tolerance
+
+2. Scaling in Distributed Systems
+➤ Vertical Scaling (Scale Up)
+Definition: Increasing the capacity of a single machine (e.g., more CPU, RAM).
+
+Pros:
+
+Simpler to implement
+
+Easier to maintain state
+
+Cons:
+
+Hardware limits
+
+Single point of failure
+
+Expensive
+
+Use Cases: Small applications, monolithic systems
+
+➤ Horizontal Scaling (Scale Out)
+Definition: Adding more machines to handle the load.
+
+Pros:
+
+Better fault tolerance
+
+Virtually infinite scalability
+
+Cost-efficient at scale
+
+Cons:
+
+More complex architecture
+
+Requires load balancing, data sharding, distributed coordination
+
+Use Cases: Web servers, microservices, cloud-native applications
