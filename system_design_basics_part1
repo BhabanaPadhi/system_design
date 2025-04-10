@@ -1,17 +1,84 @@
-1. How to Start with Distributed Systems
-Definition: A distributed system is a collection of independent computers that appear to the users as a single coherent system.
+🧠 What is System Design?
 
-Why Use Distributed Systems?
+System Design is the process of defining the architecture, components, modules, interfaces, and data for a system to satisfy specified requirements. It plays a critical role in ensuring a system is scalable, reliable, maintainable, and performant.
 
-Scalability
+There are two broad categories of system design:
 
-Fault Tolerance
+High-Level Design (HLD): Focuses on overall system architecture, major components, communication between them, and technologies used.
+Low-Level Design (LLD): Focuses on the detailed design of individual components and modules, including class diagrams, database schema, and APIs.
 
-Availability
+🆚 High-Level vs. Low-Level Design
 
-Cost-efficiency
+| Aspect               | High-Level Design                        | Low-Level Design                            |
+|----------------------|------------------------------------------|---------------------------------------------|
+| **Scope**            | Whole system / subsystems                | Specific modules / components               |
+| **Focus**            | Architecture, components, data flow      | Class design, database schema, API details  |
+| **Audience**         | Architects, Stakeholders                 | Developers, Engineers                       |
+| **Examples**         | Load balancers, microservices            | Object structure, SQL schema, method logic  |
 
-Key Concepts:
+📋Functional vs. Non-Functional Requirements
+
+Functional Requirements describe "what" the system should do.
+  - Examples: user registration, video playback, search functionality.
+
+Non-Functional Requirements define "how" the system performs under constraints.
+  - Examples: scalability, availability, latency, throughput, fault tolerance, maintainability.
+
+🎯 How to Approach a System Design Interview
+
+System design interviews test your ability to solve complex architecture problems and communicate trade-offs effectively. Here’s a general approach:
+
+1. Clarifying the Scope
+
+- Understand what exactly is being asked.
+- Clarify ambiguous terms.
+- Ask about the primary goal (MVP vs. full-blown system).
+
+🗣 Example Questions:
+- Are we supporting mobile or just web?
+- Do we care more about consistency or availability?
+
+2. Requirement Gathering
+
+Split requirements into:
+- Functional Requirements
+  - Core features (e.g., "user should be able to upload images").
+- Non-Functional Requirements
+  - Performance needs (e.g., "should handle 10M users/month").
+
+Ask questions like:
+- Expected number of users?
+- Read/write ratio?
+- Peak load estimates?
+
+3. Estimations & Constraints
+
+Estimate:
+- Traffic Load
+  - Number of requests/sec
+- Data Size
+  - Storage needed per user/item/day
+- Bandwidth
+  - Data transfer volume
+
+Define constraints:
+- Latency Targets
+- Uptime Requirements
+- Storage/Bandwidth/CPU Limitations
+
+Use back-of-the-envelope calculations to check feasibility and guide design decisions.
+
+
+🎯 How to Start with Distributed Systems
+  Definition: A distributed system is a collection of independent computers that appear to the users as a single coherent system.
+
+📋 Why Use Distributed Systems?
+      -Scalability
+      -Fault Tolerance
+      -Availability
+      -Cost-efficiency
+
+📋 Key Concepts:
 
 Nodes: Individual machines in the system.
 
@@ -21,49 +88,34 @@ State Management: Often kept in a distributed database or cache (e.g., Redis, Ca
 
 Consistency Models: Strong consistency, eventual consistency.
 
-CAP Theorem: In any distributed system, you can only have 2 of the 3:
+📋 CAP Theorem: In any distributed system, you can only have 2 of the 3:
+          -Consistency
+          -Availability
+          -Partition Tolerance
 
-Consistency
+🎯 Scaling in Distributed Systems
 
-Availability
-
-Partition Tolerance
-
-2. Scaling in Distributed Systems
 ➤ Vertical Scaling (Scale Up)
-Definition: Increasing the capacity of a single machine (e.g., more CPU, RAM).
-
+      Definition: Increasing the capacity of a single machine (e.g., more CPU, RAM).
 Pros:
-
-Simpler to implement
-
-Easier to maintain state
-
+  - Simpler to implement
+  - Easier to maintain state
 Cons:
-
-Hardware limits
-
-Single point of failure
-
-Expensive
+  - Hardware limits
+  - Single point of failure
+  - Expensive
 
 Use Cases: Small applications, monolithic systems
 
 ➤ Horizontal Scaling (Scale Out)
-Definition: Adding more machines to handle the load.
-
+      Definition: Adding more machines to handle the load.
 Pros:
-
-Better fault tolerance
-
-Virtually infinite scalability
-
-Cost-efficient at scale
-
+  - Better fault tolerance
+  - Virtually infinite scalability
+  - Cost-efficient at scale
 Cons:
+  - More complex architecture
+  - Requires load balancing, data sharding, distributed coordination
+  - Use Cases: Web servers, microservices, cloud-native applications
 
-More complex architecture
 
-Requires load balancing, data sharding, distributed coordination
-
-Use Cases: Web servers, microservices, cloud-native applications
