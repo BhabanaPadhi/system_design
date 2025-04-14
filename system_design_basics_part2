@@ -1,0 +1,60 @@
+📌 1. What is Load Balancing?
+
+✅ Definition:
+Load balancing is the process of distributing incoming network traffic across multiple backend servers to ensure no single server is overwhelmed, and the system remains reliable, scalable, and efficient.
+
+🔧 Why It's Needed:
+- To **prevent server overload**
+- To **handle more traffic** (horizontal scaling)
+- To **increase availability and fault tolerance**
+- To **reduce response time** and increase performance
+
+🧠 Types of Load Balancers:
+
+| Type | Description | Example Tools |
+|------|-------------|---------------|
+| L4 (Transport Layer)| Balances traffic based on IP address and TCP/UDP ports | NGINX (TCP), HAProxy, AWS NLB |
+| L7 (Application Layer)| Balances based on HTTP headers, cookies, path, etc. | NGINX (HTTP), AWS ALB, Envoy |
+
+⚙️ Load Balancing Algorithms:
+
+| Algorithm | Description |
+|----------|-------------|
+| Round Robin | Sends each request to the next server in the list |
+| Least Connections | Sends to server with the fewest active connections |
+| IP Hashing | Chooses server based on client IP hash |
+| Weighted Round Robin | Servers with more capacity get more requests |
+
+
+💥 Example in System:
+In a Food Delivery App:
+- The API Gateway load balances user requests to multiple backend instances of the Order or Restaurant services.
+
+📌 2. What is Consistent Hashing?
+
+✅ Definition:
+Consistent Hashing is a distributed hashing technique used to evenly distribute keys (like user IDs or cache keys) across a dynamic set of nodes, such that minimal remapping is required when nodes are added or removed.
+
+🧠 Why It’s Used:
+- Regular hashing causes major data reshuffling when nodes change
+- Consistent hashing ensures only a small subset of keys are moved
+
+🌀 How It Works:
+1. Hash all nodes (servers) and keys onto a circular hash ring.
+2. A key is assigned to the next node clockwise on the ring.
+3. When a node is added/removed, only the keys on its segment move, not all.
+
+
+🔁 Use Cases:
+
+| Use Case | Why |
+|----------|-----|
+| Distributed Caches (Redis, Memcached) | Even distribution and minimal cache misses on node change |
+| Distributed Databases (Cassandra, DynamoDB) | Data partitioning across nodes |
+| CDNs / Load Balancers | Route requests to edge nodes |
+| Sharding | Assign user or data to correct shard |
+
+
+📘 Example:
+If you have 4 cache nodes and want to store session data, consistent hashing ensures that when you add a 5th node, only ~25% of the data moves (instead of 100%).
+
